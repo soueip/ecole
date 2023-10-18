@@ -46,6 +46,7 @@ dependencies:
   fluttericon: 
   dartz: 
   flutter_otp_text_field: 
+  fl_chart: ^0.41.0
 
 dev_dependencies:
   flutter_test:
