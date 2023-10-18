@@ -3,7 +3,6 @@ import 'package:resto/core/constant/color.dart';
 import '../../../core/constant/imageasset.dart';
 import '../../../core/functions/navigationtodetails.dart';
 import '../../widget/appbar.dart';
-import '../../widget/rechargebutton.dart';
 
 class Product {
   final String id;
@@ -151,7 +150,7 @@ class HomePage extends StatelessWidget {
                                     ),
                                   ),
                                   child: Text(
-                                    "\solede est \n ${product.solde} dt",
+                                    "solede est \n ${product.solde} dt",
                                     style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 16,
@@ -170,7 +169,6 @@ class HomePage extends StatelessWidget {
               },
             ),
           ),
-          AddButton(),
         ],
       ),
     );

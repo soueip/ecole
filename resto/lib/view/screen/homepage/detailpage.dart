@@ -12,7 +12,7 @@ class ProductDetailsPage extends StatelessWidget {
   // Dummy data for financial transactions (replace this with your actual data)
   final List<Transaction> transactions = [
     Transaction(
-        productName: 'Milk', price: 5, date: '2023-10-18', kidName: 'John Doe'),
+        productName: 'milk', price: 5, date: '2023-10-18', kidName: 'John Doe'),
     Transaction(
         productName: 'Snack',
         price: 2,
@@ -24,10 +24,11 @@ class ProductDetailsPage extends StatelessWidget {
         date: '2023-10-20',
         kidName: 'Jane Doe'),
     Transaction(
-        productName: 'Snack',
+        productName: 'other',
         price: 10,
         date: '2023-10-23',
         kidName: 'Jane Doe'),
+
     // Add more transactions as needed
   ];
 
@@ -42,14 +43,24 @@ class ProductDetailsPage extends StatelessWidget {
           ListView(
             children: [
               Container(
-                color: ColorApp.primaryColor,
                 height: 200,
                 width: double.infinity,
+                decoration: const BoxDecoration(
+                  gradient: RadialGradient(
+                    center: Alignment.center,
+                    radius: 0.9, // Adjust the radius as needed
+                    colors: [
+                      ColorApp.bleufata7,
+                      ColorApp.bleu, // Start color
+                      ColorApp.primaryColor, // End color
+                    ],
+                  ),
+                ),
                 child: Hero(
                   tag: product.id,
                   child: Image.asset(
                     product.image,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fitWidth,
                   ),
                 ),
               ),
@@ -76,7 +87,7 @@ class ProductDetailsPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        "\$${product.solde}",
+                        "DT ${product.solde}",
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -91,38 +102,43 @@ class ProductDetailsPage extends StatelessWidget {
                         height: 300,
                         child: LineChart(
                           LineChartData(
-                            gridData: FlGridData(show: false),
+                            gridData: FlGridData(show: true),
                             titlesData: FlTitlesData(
                               bottomTitles: SideTitles(
                                 showTitles: true,
-                                getTextStyles:
-                                    (BuildContext context, double value) =>
-                                        const TextStyle(
+                                getTextStyles: (context, value) =>
+                                    const TextStyle(
                                   color: Colors.black,
                                   fontSize: 12,
                                 ),
                                 getTitles: (value) {
                                   if (value >= 0 &&
                                       value < transactions.length) {
-                                    // Format the date based on your requirements
-                                    return transactions[value.toInt()].date;
+                                    // Extracting day and month from the date
+                                    DateTime transactionDate = DateTime.parse(
+                                        transactions[value.toInt()].date);
+                                    String formattedDate =
+                                        '${transactionDate.day}-${transactionDate.month}';
+                                    return formattedDate;
                                   }
                                   return '';
                                 },
                               ),
                               leftTitles: SideTitles(
                                 showTitles: true,
-                                getTextStyles:
-                                    (BuildContext context, double value) =>
-                                        const TextStyle(
+                                getTextStyles: (context, value) =>
+                                    const TextStyle(
                                   color: Colors.black,
-                                  fontSize: 12,
+                                  fontSize: 10,
                                 ),
                                 getTitles: (value) {
-                                  // Format the amount based on your requirements
-                                  return '\$${value.toStringAsFixed(2)}';
+                                  return 'DT ${value.toStringAsFixed(0)}';
                                 },
                               ),
+                              rightTitles: SideTitles(
+                                  showTitles: false), // Hide right legend
+                              topTitles: SideTitles(
+                                  showTitles: false), // Hide top legend
                             ),
                             borderData: FlBorderData(
                               show: true,
@@ -140,7 +156,7 @@ class ProductDetailsPage extends StatelessWidget {
                                 }),
                                 isCurved: true,
                                 colors: [Colors.blue],
-                                dotData: FlDotData(show: false),
+                                dotData: FlDotData(show: true),
                                 belowBarData: BarAreaData(show: false),
                                 aboveBarData: BarAreaData(show: false),
                               ),
@@ -156,7 +172,7 @@ class ProductDetailsPage extends StatelessWidget {
               ),
             ],
           ),
-          AddButton(),
+          const AddButton(),
         ],
       ),
     );
