@@ -58,7 +58,6 @@ class ProductDetailsPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  // Add other details here...
                 ],
               ),
             ),
