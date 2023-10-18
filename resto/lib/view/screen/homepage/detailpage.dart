@@ -25,7 +25,7 @@ class ProductDetailsPage extends StatelessWidget {
         kidName: 'Jane Doe'),
     Transaction(
         productName: 'other',
-        price: 10,
+        price: 6,
         date: '2023-10-23',
         kidName: 'Jane Doe'),
 
