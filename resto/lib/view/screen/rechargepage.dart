@@ -14,13 +14,13 @@ class Recharge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     LoginControllerImp controller = Get.put(LoginControllerImp());
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       controller.email.clear();
     });
     return Scaffold(
       appBar: const CustomAppBar(title: 'Rechargez le Compte'),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: RadialGradient(
             center: Alignment.center,
             radius: 0.8,
@@ -38,11 +38,11 @@ class Recharge extends StatelessWidget {
             decoration: BoxDecoration(
               color: ColorApp.white,
               borderRadius: BorderRadius.circular(10.0),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.black26,
                   blurRadius: 10.0,
-                  offset: const Offset(0, 5),
+                  offset: Offset(0, 5),
                 ),
               ],
             ),

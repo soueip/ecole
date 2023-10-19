@@ -1,43 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:resto/core/constant/color.dart';
-import 'package:fl_chart/fl_chart.dart';
 
+import '../../../data/model/kidmodel.dart';
+import '../../../data/model/transactions.dart';
 import '../../widget/appbar.dart';
+import '../../widget/chart.dart';
 import '../../widget/rechargebutton.dart';
 import 'homepage.dart';
 
 class ProductDetailsPage extends StatelessWidget {
-  final Product product;
-
-  // Dummy data for financial transactions (replace this with your actual data)
-  final List<Transaction> transactions = [
-    Transaction(
-        productName: 'milk', price: 5, date: '2023-10-18', kidName: 'John Doe'),
-    Transaction(
-        productName: 'Snack',
-        price: 2,
-        date: '2023-10-19',
-        kidName: 'Jane Doe'),
-    Transaction(
-        productName: 'Snack',
-        price: 4,
-        date: '2023-10-20',
-        kidName: 'Jane Doe'),
-    Transaction(
-        productName: 'other',
-        price: 6,
-        date: '2023-10-23',
-        kidName: 'Jane Doe'),
-
-    // Add more transactions as needed
-  ];
-
-  ProductDetailsPage({Key? key, required this.product}) : super(key: key);
+  final Kid kid;
+  const ProductDetailsPage({Key? key, required this.kid}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: product.title),
+      appBar: CustomAppBar(title: kid.name),
       body: Stack(
         children: [
           ListView(
@@ -57,9 +35,9 @@ class ProductDetailsPage extends StatelessWidget {
                   ),
                 ),
                 child: Hero(
-                  tag: product.id,
+                  tag: kid.id,
                   child: Image.asset(
-                    product.image,
+                    kid.image,
                     fit: BoxFit.fitWidth,
                   ),
                 ),
@@ -79,7 +57,7 @@ class ProductDetailsPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        product.title,
+                        kid.name,
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -87,7 +65,7 @@ class ProductDetailsPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        "DT ${product.solde}",
+                        "DT ${kid.solde}",
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -95,77 +73,8 @@ class ProductDetailsPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 16),
-// ...
-
-// Chart for daily money spent
-                      SizedBox(
-                        height: 300,
-                        child: LineChart(
-                          LineChartData(
-                            gridData: FlGridData(show: true),
-                            titlesData: FlTitlesData(
-                              bottomTitles: SideTitles(
-                                showTitles: true,
-                                getTextStyles: (context, value) =>
-                                    const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 12,
-                                ),
-                                getTitles: (value) {
-                                  if (value >= 0 &&
-                                      value < transactions.length) {
-                                    // Extracting day and month from the date
-                                    DateTime transactionDate = DateTime.parse(
-                                        transactions[value.toInt()].date);
-                                    String formattedDate =
-                                        '${transactionDate.day}-${transactionDate.month}';
-                                    return formattedDate;
-                                  }
-                                  return '';
-                                },
-                              ),
-                              leftTitles: SideTitles(
-                                showTitles: true,
-                                getTextStyles: (context, value) =>
-                                    const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 10,
-                                ),
-                                getTitles: (value) {
-                                  return 'DT ${value.toStringAsFixed(0)}';
-                                },
-                              ),
-                              rightTitles: SideTitles(
-                                  showTitles: false), // Hide right legend
-                              topTitles: SideTitles(
-                                  showTitles: false), // Hide top legend
-                            ),
-                            borderData: FlBorderData(
-                              show: true,
-                              border: Border.all(
-                                color: Colors.grey,
-                                width: 0.5,
-                              ),
-                            ),
-                            lineBarsData: [
-                              LineChartBarData(
-                                spots:
-                                    List.generate(transactions.length, (index) {
-                                  return FlSpot(index.toDouble(),
-                                      transactions[index].price);
-                                }),
-                                isCurved: true,
-                                colors: [Colors.blue],
-                                dotData: FlDotData(show: true),
-                                belowBarData: BarAreaData(show: false),
-                                aboveBarData: BarAreaData(show: false),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
-
-// ...
+                      TransactionChart(transactions: transactions),
+                      // ...
                     ],
                   ),
                 ),
@@ -177,18 +86,4 @@ class ProductDetailsPage extends StatelessWidget {
       ),
     );
   }
-}
-
-class Transaction {
-  final String productName;
-  final double price;
-  final String date;
-  final String kidName;
-
-  Transaction({
-    required this.productName,
-    required this.price,
-    required this.date,
-    required this.kidName,
-  });
 }

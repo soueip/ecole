@@ -1,39 +1,37 @@
 import 'package:flutter/material.dart';
+
 import 'package:resto/core/constant/color.dart';
 import '../../../core/constant/imageasset.dart';
 import '../../../core/functions/navigationtodetails.dart';
 import '../../widget/appbar.dart';
 
-class Product {
+class Kid {
   final String id;
-  final String title;
+  final String name;
   final double solde;
   final String image;
 
-  Product(
-      {required this.id,
-      required this.title,
-      required this.solde,
-      required this.image});
+  Kid({
+    required this.id,
+    required this.name,
+    required this.solde,
+    required this.image,
+  });
 }
-
-// Existing code...
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    List<Product> products = [
-      Product(
-          id: '1', title: 'mohamed alii', solde: 10.99, image: ImageAsset.boy1),
-      Product(id: '2', title: 'Yasmine ', solde: 15.99, image: ImageAsset.boy2),
-      Product(id: '3', title: 'Yassine', solde: 22.99, image: ImageAsset.girl1),
-      // Add more products as needed
+    final List<Kid> kids = [
+      Kid(id: '1', name: 'Mohamed Alii', solde: 10.99, image: ImageAsset.boy1),
+      Kid(id: '2', name: 'Yasmine', solde: 15.99, image: ImageAsset.boy2),
+      Kid(id: '3', name: 'Yassine', solde: 22.99, image: ImageAsset.girl1),
     ];
 
     return Scaffold(
-      appBar: const CustomAppBar(title: 'sélectionnez votre enfant'),
+      appBar: const CustomAppBar(title: 'Sélectionnez votre enfant'),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -47,16 +45,16 @@ class HomePage extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               scrollDirection: Axis.vertical,
-              itemCount: products.length,
+              itemCount: kids.length,
               itemBuilder: (context, index) {
-                Product product = products[index];
+                Kid kid = kids[index];
                 return AnimatedContainer(
                   duration: const Duration(milliseconds: 500),
                   margin:
                       const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   child: InkWell(
                     onTap: () {
-                      NavigateToProductDetails(context, product);
+                      NavigateToProductDetails(context, kid);
                     },
                     child: Stack(
                       alignment: Alignment.bottomCenter,
@@ -94,7 +92,7 @@ class HomePage extends StatelessWidget {
                           bottom: 0,
                           right: 0,
                           child: Hero(
-                            tag: product.id,
+                            tag: kid.id,
                             child: Container(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 10),
@@ -103,7 +101,7 @@ class HomePage extends StatelessWidget {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(12),
                                 child: Image.asset(
-                                  product.image,
+                                  kid.image,
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -125,7 +123,7 @@ class HomePage extends StatelessWidget {
                                   ),
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
-                                    product.title,
+                                    kid.name,
                                     style: const TextStyle(
                                       color: ColorApp.black,
                                       fontSize: 16,
@@ -150,7 +148,7 @@ class HomePage extends StatelessWidget {
                                     ),
                                   ),
                                   child: Text(
-                                    "solede est \n ${product.solde} dt",
+                                    "Solde est \n ${kid.solde} dt",
                                     style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 16,
