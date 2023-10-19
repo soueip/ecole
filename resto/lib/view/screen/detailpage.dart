@@ -5,14 +5,19 @@ import '../../data/model/kidmodel.dart';
 import '../../data/model/transactions.dart';
 import '../widget/appbar.dart';
 import '../widget/details/chart.dart';
+import '../widget/details/chartpie.dart';
 import '../widget/details/rechargebutton.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   final Kid kid;
+
   const ProductDetailsPage({Key? key, required this.kid}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    List<Transaction> filteredTransactions = transactions
+        .where((transaction) => transaction.kidName == kid.name)
+        .toList();
     return Scaffold(
       appBar: CustomAppBar(title: kid.name),
       body: Stack(
@@ -25,11 +30,11 @@ class ProductDetailsPage extends StatelessWidget {
                 decoration: const BoxDecoration(
                   gradient: RadialGradient(
                     center: Alignment.center,
-                    radius: 0.9, // Adjust the radius as needed
+                    radius: 0.9,
                     colors: [
                       ColorApp.bleufata7,
-                      ColorApp.bleu, // Start color
-                      ColorApp.primaryColor, // End color
+                      ColorApp.bleu,
+                      ColorApp.primaryColor,
                     ],
                   ),
                 ),
@@ -45,7 +50,7 @@ class ProductDetailsPage extends StatelessWidget {
                 color: ColorApp.primaryColor,
                 child: Container(
                   width: double.infinity,
-                  height: 500,
+                  height: 800,
                   padding: const EdgeInsets.all(16.0),
                   decoration: BoxDecoration(
                     color: ColorApp.white,
@@ -72,8 +77,12 @@ class ProductDetailsPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      TransactionChart(transactions: transactions),
-                      // ...
+                      TransactionChart(transactions: filteredTransactions),
+
+                      // Wrap ChartPie with Expanded
+                      Expanded(
+                        child: ChartPie(transactions: filteredTransactions),
+                      ),
                     ],
                   ),
                 ),
