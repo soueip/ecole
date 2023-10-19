@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:resto/core/constant/color.dart';
 
-import '../screen/rechargepage.dart';
+import '../../screen/rechargepage.dart';
 
 class AddButton extends StatelessWidget {
   const AddButton({super.key});

@@ -3,11 +3,11 @@ import 'package:get/get.dart';
 import 'package:resto/controller/login.dart';
 import 'package:resto/core/constant/color.dart';
 
-import '../../core/functions/alertexitapp.dart';
-import '../../core/functions/validinput.dart';
-import '../widget/auth/authbutom.dart';
-import '../widget/logoauth.dart';
-import '../widget/auth/textformauth.dart';
+import '../../../core/functions/alertexitapp.dart';
+import '../../../core/functions/validinput.dart';
+import '../../widget/auth/authbutom.dart';
+import '../../widget/auth/logoauth.dart';
+import '../../widget/auth/textformauth.dart';
 
 class Auth extends StatelessWidget {
   const Auth({super.key});

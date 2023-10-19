@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/constant/imageasset.dart';
+import '../../../core/constant/imageasset.dart';
 
 class LogoAuth extends StatelessWidget {
   const LogoAuth({super.key});

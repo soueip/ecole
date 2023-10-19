@@ -3,11 +3,11 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:resto/view/widget/auth/authbutom.dart';
 
-import '../../../controller/forgetpassword/verifycode.dart';
-import '../../../core/constant/color.dart';
-import '../../widget/auth/titleauth.dart';
-import '../../widget/logoauth.dart';
-import '../../widget/textcolored.dart';
+import '../../../../controller/forgetpassword/verifycode.dart';
+import '../../../../core/constant/color.dart';
+import '../../../widget/auth/textcolored.dart';
+import '../../../widget/auth/titleauth.dart';
+import '../../../widget/auth/logoauth.dart';
 
 class VerfiyCode extends StatelessWidget {
   const VerfiyCode({super.key});

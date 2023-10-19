@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:resto/core/constant/color.dart';
 
-import '../../../data/model/kidmodel.dart';
-import '../../../data/model/transactions.dart';
-import '../../widget/appbar.dart';
-import '../../widget/chart.dart';
-import '../../widget/rechargebutton.dart';
+import '../../data/model/kidmodel.dart';
+import '../../data/model/transactions.dart';
+import '../widget/appbar.dart';
+import '../widget/details/chart.dart';
+import '../widget/details/rechargebutton.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   final Kid kid;

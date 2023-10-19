@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../data/model/kidmodel.dart';
-import '../../view/screen/homepage/detailpage.dart';
+import '../../view/screen/detailpage.dart';
 
 void navigateToProductDetails(BuildContext context, Kid kids) {
   Navigator.of(context).push(
