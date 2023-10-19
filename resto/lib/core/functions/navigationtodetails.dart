@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../data/model/kidmodel.dart';
 import '../../view/screen/homepage/detailpage.dart';
-import '../../view/screen/homepage/homepage.dart';
 
-void NavigateToProductDetails(BuildContext context, Kid kids) {
+void navigateToProductDetails(BuildContext context, Kid kids) {
   Navigator.of(context).push(
     PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) =>

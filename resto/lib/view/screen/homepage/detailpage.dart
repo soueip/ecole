@@ -6,7 +6,6 @@ import '../../../data/model/transactions.dart';
 import '../../widget/appbar.dart';
 import '../../widget/chart.dart';
 import '../../widget/rechargebutton.dart';
-import 'homepage.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   final Kid kid;

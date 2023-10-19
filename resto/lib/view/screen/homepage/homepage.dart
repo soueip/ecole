@@ -3,33 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:resto/core/constant/color.dart';
 import '../../../core/constant/imageasset.dart';
 import '../../../core/functions/navigationtodetails.dart';
+import '../../../data/model/kidmodel.dart';
 import '../../widget/appbar.dart';
-
-class Kid {
-  final String id;
-  final String name;
-  final double solde;
-  final String image;
-
-  Kid({
-    required this.id,
-    required this.name,
-    required this.solde,
-    required this.image,
-  });
-}
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final List<Kid> kids = [
-      Kid(id: '1', name: 'Mohamed Alii', solde: 10.99, image: ImageAsset.boy1),
-      Kid(id: '2', name: 'Yasmine', solde: 15.99, image: ImageAsset.boy2),
-      Kid(id: '3', name: 'Yassine', solde: 22.99, image: ImageAsset.girl1),
-    ];
-
     return Scaffold(
       appBar: const CustomAppBar(title: 'Sélectionnez votre enfant'),
       body: Column(
@@ -54,7 +35,7 @@ class HomePage extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   child: InkWell(
                     onTap: () {
-                      NavigateToProductDetails(context, kid);
+                      navigateToProductDetails(context, kid);
                     },
                     child: Stack(
                       alignment: Alignment.bottomCenter,
