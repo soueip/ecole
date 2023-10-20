@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:resto/core/constant/routes.dart';
 import 'package:resto/core/services/services.dart';
 import 'package:resto/routes.dart';
-
 import 'core/locolazition/changelocation.dart';
 import 'core/locolazition/translation.dart';
 
