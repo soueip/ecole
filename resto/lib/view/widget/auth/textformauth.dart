@@ -53,7 +53,7 @@ class TextFormAuth extends StatelessWidget {
               ),
               floatingLabelBehavior: FloatingLabelBehavior.always,
               contentPadding: const EdgeInsets.symmetric(
-                vertical: 15,
+                vertical: 10,
                 horizontal: 10,
               ),
               suffixIcon: InkWell(

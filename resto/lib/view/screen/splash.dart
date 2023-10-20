@@ -19,30 +19,35 @@ class Splash extends GetView<SplashControllerImp> {
     }));
 
     return Scaffold(
-      backgroundColor: ColorApp.white,
+      backgroundColor: ColorApp.white, // Set the background color
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Improved animation for the logo
             AnimatedPositioned(
-              duration: const Duration(seconds: 3),
+              duration: const Duration(seconds: 2),
               curve: Curves.easeInOut,
               top: top1,
               child: Image.asset(
                 ImageAsset.splash,
-                scale: 2,
-                fit: BoxFit.fill,
+                scale: 1.5, // Adjust the scale for your logo
+                fit: BoxFit.contain, // Use 'contain' for logos
               ),
             ),
-            const SizedBox(
-              height: 50,
-            ),
+            const SizedBox(height: 20), // Reduce the spacing
+
+            // Improved animation for the welcome text
             AnimatedPositioned(
-              duration: const Duration(seconds: 3),
+              duration: const Duration(seconds: 2),
               curve: Curves.easeInOut,
               top: top2,
-              child: Text('Bienvenue',
-                  style: Theme.of(context).textTheme.titleLarge),
+              child: Text(
+                'Bienvenue',
+                style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                      color: ColorApp.bleu,
+                    ),
+              ),
             ),
           ],
         ),

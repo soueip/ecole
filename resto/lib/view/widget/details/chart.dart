@@ -67,9 +67,12 @@ class TransactionChart extends StatelessWidget {
         return FlSpot(index.toDouble(), transactions[index].price);
       }),
       isCurved: true,
-      colors: [ColorApp.black],
+      colors: [ColorApp.gris8ama9],
       dotData: FlDotData(show: true),
-      belowBarData: BarAreaData(show: false),
+      belowBarData: BarAreaData(
+        show: true,
+        colors: [Color.fromARGB(75, 1, 29, 112)], // Set the color here
+      ),
       aboveBarData: BarAreaData(show: false),
     );
   }

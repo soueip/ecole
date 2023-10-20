@@ -17,7 +17,7 @@ class Titleauth extends StatelessWidget {
         Text(
           headline,
           textAlign: TextAlign.start,
-          style: Theme.of(context).textTheme.headline3?.copyWith(
+          style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                 color: ColorApp.primaryColor,
               ),
         ),
@@ -25,7 +25,9 @@ class Titleauth extends StatelessWidget {
         Text(
           text,
           textAlign: TextAlign.start,
-          style: Theme.of(context).textTheme.bodyText2,
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: ColorApp.bleu,
+              ),
         ),
       ],
     );
