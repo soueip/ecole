@@ -71,7 +71,7 @@ class TransactionChart extends StatelessWidget {
       dotData: FlDotData(show: true),
       belowBarData: BarAreaData(
         show: true,
-        colors: [Color.fromARGB(75, 1, 29, 112)], // Set the color here
+        colors: [const Color.fromARGB(75, 1, 29, 112)], // Set the color here
       ),
       aboveBarData: BarAreaData(show: false),
     );

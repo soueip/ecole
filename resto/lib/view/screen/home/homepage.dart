@@ -4,6 +4,7 @@ import '../../../core/functions/navigationtodetails.dart';
 import '../../../data/model/kidmodel.dart';
 import '../../widget/appbar.dart';
 import '../../widget/home/card.dart';
+import '../../widget/navbar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,6 +12,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: const NavDrawer(),
       appBar: const CustomAppBar(title: 'Sélectionnez votre enfant'),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

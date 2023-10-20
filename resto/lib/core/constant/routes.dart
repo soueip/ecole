@@ -7,4 +7,5 @@ class AppRoutes {
   static const String successpage = "/succes";
   static const String homepage = "/homepage";
   static const String adminhomepage = "/adminhomepage";
+  static const String recharge = "/recharge";
 }

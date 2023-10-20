@@ -5,6 +5,7 @@ import 'package:resto/view/screen/auth/forget%20password/resetpassword.dart';
 import 'package:resto/view/screen/auth/forget%20password/successpage.dart';
 import 'package:resto/view/screen/auth/forget%20password/verifycode.dart';
 import 'package:resto/view/screen/home/adminepage.dart';
+import 'package:resto/view/screen/rechargepage.dart';
 
 import 'package:resto/view/screen/splash.dart';
 
@@ -20,4 +21,5 @@ Map<String, Widget Function(BuildContext)> routes = {
   AppRoutes.successpage: (context) => const SuccessPassPage(),
   AppRoutes.homepage: (context) => const HomePage(),
   AppRoutes.adminhomepage: (context) => const AdminHomepage(),
+  AppRoutes.recharge: (context) => const Recharge(),
 };
