@@ -35,6 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  intl:
   get: 
   animated_text_kit: ^4.2.2
     # Local Data Cache
@@ -46,6 +47,7 @@ dependencies:
   fluttericon: 
   dartz: 
   flutter_otp_text_field: 
+  fl_chart: ^0.41.0
 
 dev_dependencies:
   flutter_test:
