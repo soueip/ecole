@@ -31,7 +31,7 @@ class NavDrawer extends StatelessWidget {
                 Material(
                   elevation: 6,
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       gradient: ColorApp.radialGradient,
                     ),
                     child: DrawerHeader(
@@ -45,7 +45,7 @@ class NavDrawer extends StatelessWidget {
                                 width: 206 * fem,
                                 height: 25 * fem * femHeight,
                                 child: Text(
-                                  'Welcome Kat Grem!',
+                                  'wlecome back',
                                   style: Theme.of(context)
                                       .textTheme
                                       .headline5
@@ -59,13 +59,13 @@ class NavDrawer extends StatelessWidget {
                             top: 50 * fem,
                             child: Align(
                               child: SizedBox(
-                                width: 70.02 * fem,
-                                height: 70 * fem * femHeight,
+                                width: 86.02 * fem,
+                                height: 86 * fem * femHeight,
                                 child: Container(
                                   decoration: const BoxDecoration(
                                     image: DecorationImage(
-                                      fit: BoxFit.cover,
-                                      image: AssetImage(ImageAsset.recharge),
+                                      fit: BoxFit.fill,
+                                      image: AssetImage(ImageAsset.navbar),
                                     ),
                                   ),
                                 ),
@@ -104,18 +104,14 @@ class NavDrawer extends StatelessWidget {
                           controller.recharge();
                         },
                       ),
-                      /* ListTile(
-                      leading: Icon(Icons.notifications, color: Colors.white),
-                      title: Text(
-                        'Notifications',
-                        style: TextStyle(color: Colors.white),
+                      const ListTile(
+                        leading: Icon(Icons.person, color: ColorApp.bleufata7),
+                        title: Text(
+                          'Profile',
+                          style: TextStyle(color: ColorApp.bleufata7),
+                        ),
+                        // onTap: () {    },
                       ),
-                      onTap: () {
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => const Notif()),
-                        );
-                      },
-                    ), */
                       const ListTile(
                         leading:
                             Icon(Icons.settings, color: ColorApp.bleufata7),

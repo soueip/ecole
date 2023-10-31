@@ -94,7 +94,7 @@ class CardWidget extends StatelessWidget {
                     vertical: 5,
                   ),
                   decoration: const BoxDecoration(
-                    color: ColorApp.gris8ama9,
+                    gradient: ColorApp.gridnet,
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(12),
                       topRight: Radius.circular(12),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/constant/imageasset.dart';
+import '../../../core/functions/alertexitapp.dart';
 import '../../../core/functions/navigationtodetails.dart';
 import '../../../data/model/kidmodel.dart';
 import '../../widget/appbar.dart';
@@ -14,40 +15,43 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       endDrawer: const NavDrawer(),
       appBar: const CustomAppBar(title: 'Sélectionnez votre enfant'),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          SizedBox(
-            height: 145,
-            child: Image.asset(
-              ImageAsset.appbar,
-              fit: BoxFit.fitWidth,
+      body: WillPopScope(
+        onWillPop: alertExitApp,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SizedBox(
+              height: 145,
+              child: Image.asset(
+                ImageAsset.appbar,
+                fit: BoxFit.fitWidth,
+              ),
             ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              itemCount: kids.length,
-              itemBuilder: (context, index) {
-                Kid kid = kids[index];
-                return AnimatedContainer(
-                  duration: const Duration(milliseconds: 500),
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                  child: InkWell(
-                    onTap: () {
-                      navigateToProductDetails(context, kid);
-                    },
-                    child: CardWidget(
-                      kid: kid,
-                      index: index,
+            Expanded(
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: kids.length,
+                itemBuilder: (context, index) {
+                  Kid kid = kids[index];
+                  return AnimatedContainer(
+                    duration: const Duration(milliseconds: 500),
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    child: InkWell(
+                      onTap: () {
+                        navigateToProductDetails(context, kid);
+                      },
+                      child: CardWidget(
+                        kid: kid,
+                        index: index,
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

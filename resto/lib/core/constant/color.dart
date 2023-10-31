@@ -9,9 +9,16 @@ class ColorApp {
   static const Color gris8ama9 = Color(0xff383B54);
   static const Color bleu = Color(0xff3A60CD);
   static const Color bleufata7 = Color.fromARGB(255, 39, 157, 231);
-  static final RadialGradient radialGradient = RadialGradient(
+  static const RadialGradient radialGradient = RadialGradient(
     center: Alignment.center,
     radius: 0.9,
+    colors: [
+      bleufata7,
+      bleu,
+      primaryColor,
+    ],
+  );
+  static const LinearGradient gridnet = LinearGradient(
     colors: [
       bleufata7,
       bleu,

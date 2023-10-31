@@ -21,11 +21,7 @@ class AuthButton extends StatelessWidget {
         ),
         child: Ink(
           decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              colors: [ColorApp.primaryColor, Color(0xff3880FC)],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
+            gradient: ColorApp.gridnet,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Container(
